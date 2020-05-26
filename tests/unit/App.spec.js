@@ -28,7 +28,7 @@ const mockGroupedPosts = [
         'location': 'San Francisco',
         'text': 'Proper PDF conversion ensures that every element of your document remains just as you left it.',
         'time': '1552657573',
-        'weeks': 62,
+        'week': 62,
     },
     {
         'author': 'Happy User',
@@ -36,7 +36,7 @@ const mockGroupedPosts = [
         'location': 'San Francisco',
         'text': 'The modern workplace is increasingly digital, and workflows are constantly evolving.',
         'time': '1552571173',
-        'weeks': 62,
+        'week': 62,
     },
 ]
 
@@ -54,7 +54,7 @@ describe('Component: Root', () => {
     describe('initial render', () => {
         it('should render the component', () => {
             expect(wrapper.html()).toContain('class="app"')
-            expect(vm.groupByType).toBe('weeks')
+            expect(vm.groupByType).toBe('week')
         })
         it('should populate `postsList` correctly', () => {
             expect(vm.postsList).toEqual(mockData)
@@ -66,7 +66,7 @@ describe('Component: Root', () => {
                     'posts': mockGroupedPosts
                 },
             ]
-            expect(vm.groupByType).toBe('weeks')
+            expect(vm.groupByType).toBe('week')
             expect(vm.groupPosts).toEqual(expectedGroupedPosts)
         })
     })

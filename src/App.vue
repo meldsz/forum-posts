@@ -6,7 +6,7 @@
                 :items="groupByItems"
                 v-model="groupByType"
                 outlined
-                label="Group posts By">
+                label="Group posts by">
             </v-select>
             <v-list-group
                 value="true">
@@ -21,7 +21,7 @@
                     <template
                         v-slot:activator>
                         <v-list-item-title>
-                            {{groupByType === 'weeks' ? displayWeeks(postArr.name) : postArr.name}}
+                            {{groupByType === 'week' ? displayWeeks(postArr.name) : postArr.name}}
                         </v-list-item-title>
                     </template>
                     <v-list-item
@@ -72,8 +72,8 @@
         data() {
             return {
                 postsList: [],
-                groupByType: 'weeks',
-                groupByItems: ['author', 'location', 'weeks']
+                groupByType: 'week',
+                groupByItems: ['author', 'location', 'week']
             }
         },
         mounted() {
@@ -87,7 +87,7 @@
                     postsList.forEach(post => {
                         const epochMilliseconds = post.time * 1000
                         const delta = Math.abs(epochMilliseconds - Date.now()) / 1000
-                        post.weeks = Math.floor(delta / 604800)
+                        post.week = Math.floor(delta / 604800)
                     })
                     this.postsList = postsList
                 } catch (e) {
